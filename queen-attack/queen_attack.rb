@@ -9,14 +9,12 @@ class Queens
   
   def board
     board = {}
-    (0..7).each do |vertical_space|
-      (0..7).each do |horizontal_space|
-        if [vertical_space, horizontal_space] == black
-          board[[vertical_space, horizontal_space]] = 'B'
-        elsif [vertical_space, horizontal_space] == white
-          board[[vertical_space, horizontal_space]] = 'W'
-        else
-          board[[vertical_space, horizontal_space]] = '_'
+    (0..7).each do |up|
+      (0..7).each do |over|
+        case [up, over]
+          when black then board[[up, over]] = 'B'
+          when white then board[[up, over]] = 'W' 
+          else board[[up, over]] = '_'
         end
       end
     end
