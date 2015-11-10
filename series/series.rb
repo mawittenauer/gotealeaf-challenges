@@ -12,10 +12,9 @@ class Series
     array = number.chars.map { |n| n.to_i }
     slice = []
     
-    array.length.times do
-      slice << array.take(length)
-      array.shift
-      break if array.length < length
+    array.each_index do |index|
+      break if array[index, length].length < length
+      slice << array[index, length]
     end
     
     slice
