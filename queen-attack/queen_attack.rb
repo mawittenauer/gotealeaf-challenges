@@ -35,11 +35,9 @@ class Queens
   end
   
   def attack?
-    if (white[0] - white[1]) == (black[0] - black[1]) || (white[1] - white[0]) == (black[0] - black[1])
-      true
-    elsif white[0] == black[0] || white[1] == black[1]
-      true
-    end
+    (white[0] - white[1]) == (black[0] - black[1]) || 
+    (white[1] - white[0]) == (black[0] - black[1]) || 
+    white[0] == black[0] || white[1] == black[1]
   end
   
 end
