@@ -27,17 +27,12 @@ class Triplet
     
     array = (min_factor..max_factor).to_a.combination(3).to_a
     
+    array.each { |pair| triplets << Triplet.new(pair[0], pair[1], pair[2]) }
+    
     if !sum
-      array.each do |pair|
-        triplet = Triplet.new(pair[0], pair[1], pair[2])
-        triplets << triplet if triplet.pythagorean?
-      end
+      triplets.select { |triplet| triplet.pythagorean? }
     else
-      array.each do |pair|
-        triplet = Triplet.new(pair[0], pair[1], pair[2])
-        triplets << triplet if triplet.pythagorean? && triplet.sum == sum
-      end
+      triplets.select { |triplet| triplet.pythagorean? && triplet.sum == sum}
     end
-    triplets
   end
 end
